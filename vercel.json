@@ -1,6 +1,19 @@
 {
+  "cleanUrls": true,
   "rewrites": [
-    { "source": "/api/:match*", "destination": "/api/:match*" },
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": ".*"
+        }
+      ],
+      "destination": "/index.html"
+    }
   ]
 }
